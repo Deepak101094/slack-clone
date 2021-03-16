@@ -70,6 +70,8 @@ const SideBarContainer = styled.div`
     margin-bottom: 10px;
     border: 1px solid #49274b;
   }
+  overflow-y: scroll
+
 `;
 
 const SideBarHeader = styled.div`
