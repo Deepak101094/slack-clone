@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import styled from "styled-components";
-import SideBar from "./components/SideBar";
+import SideBar from "./components/sidebar";
 
 function App() {
   return (
