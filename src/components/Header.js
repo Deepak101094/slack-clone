@@ -2,29 +2,35 @@ import React from "react";
 import styled from "styled-components";
 import Avatar from "@material-ui/core/Avatar";
 import { AccessTime, HelpOutline, Search } from "@material-ui/icons";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+
 
 const Header = () => {
+  const [user, loading] = useAuthState(auth);
+ console.log("user is", user);
   return (
     <HeaderContainer>
-
-        {/* header left */}
+      {/* header left */}
       <HeaderLeft>
-        <HeaderAvatar />
-
+        <HeaderAvatar
+          src={user?.photoURL}
+          alt={user?.displayName}
+          onClick={() => auth.signOut()}
+        />
         <AccessTime />
       </HeaderLeft>
 
       {/* header-search */}
       <HeaderSearch>
-          <Search />
-          <input placeholder="search community" />
+        <Search />
+        <input placeholder="search community" />
       </HeaderSearch>
 
       {/* header-right */}
       <HeaderRight>
-<HelpOutline />
+        <HelpOutline />
       </HeaderRight>
-
     </HeaderContainer>
   );
 };
@@ -62,33 +68,33 @@ const HeaderAvatar = styled(Avatar)`
 `;
 
 const HeaderSearch = styled.div`
-flex: 0.4;
-opacity: 1;
-border-radius: 6px;
-background-color: #421f44;
-text-align: center;
-display: flex;
-padding: 0 50px;
-color: gray;
-border: 1px solid gray;
+  flex: 0.4;
+  opacity: 1;
+  border-radius: 6px;
+  background-color: #421f44;
+  text-align: center;
+  display: flex;
+  padding: 0 50px;
+  color: gray;
+  border: 1px solid gray;
 
-> input {
+  > input {
     background-color: transparent;
     border: none;
     text-align: center;
     min-width: 30vw;
     outline: 0;
     color: white;
-}
+  }
 `;
 
 const HeaderRight = styled.div`
-flex: 0.3;
-display: flex;
-align-items: flex-end;
+  flex: 0.3;
+  display: flex;
+  align-items: flex-end;
 
-> .MuiSvgIcon-root {
+  > .MuiSvgIcon-root {
     margin-left: auto;
     margin-right: 20px;
-}
+  }
 `;

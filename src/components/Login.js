@@ -1,11 +1,14 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
+import { provider } from "../firebase";
+import { auth } from "../firebase";
 
 const Login = () => {
-    const signIn = (e) => {
-e.preventDefault()
-    }
+  const signIn = (e) => {
+    e.preventDefault();
+    auth.signInWithPopup(provider).catch((error) => alert(error.message));
+  };
   return (
     <LoginContainer>
       <LoginInnerContainer>
@@ -15,7 +18,7 @@ e.preventDefault()
         />
         <h1>Sign in to the slack community</h1>
         <p>slack.community.com</p>
-        <Button  onClick={signIn}>Sign In with Google</Button>
+        <Button onClick={signIn}>Sign In with Google</Button>
       </LoginInnerContainer>
     </LoginContainer>
   );
@@ -43,9 +46,9 @@ const LoginInnerContainer = styled.div`
     margin-bottom: 40px;
   }
   > button {
-      margin-top: 50px;
-      text-transform: inherit !important;
-      background-color: #0a8d48 !important;
-      color: white;
+    margin-top: 50px;
+    text-transform: inherit !important;
+    background-color: #0a8d48 !important;
+    color: white;
   }
 `;

@@ -3,8 +3,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { db } from "../../firebase";
 import firebase from "firebase";
+import { useAuthState } from  "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
 
 const ChatInput = ({ channelName, channelId, chatRef }) => {
+  const [user] = useAuthState(auth);
   const [input, setInput] = useState("");
   const sendMessage = (e) => {
     e.preventDefault();
@@ -15,9 +18,8 @@ const ChatInput = ({ channelName, channelId, chatRef }) => {
     db.collection("rooms").doc(channelId).collection("messages").add({
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      user: "Deepak Pandey",
-      userImage:
-        "https://www.kindpng.com/picc/m/2-23341_clipart-person-computer-man-surprise-clipart-hd-png.png",
+      user: user.displayName,
+      userImage: user.photoURL        
     });
     chatRef?.current.scrollIntoView({
       behavior: "smooth",
