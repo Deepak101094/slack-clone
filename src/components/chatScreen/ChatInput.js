@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { db } from "../../firebase";
 import firebase from "firebase";
 
-const ChatInput = ({ channelName, channelId }) => {
+const ChatInput = ({ channelName, channelId, chatRef }) => {
   const [input, setInput] = useState("");
   const sendMessage = (e) => {
     e.preventDefault();
@@ -19,7 +19,9 @@ const ChatInput = ({ channelName, channelId }) => {
       userImage:
         "https://www.kindpng.com/picc/m/2-23341_clipart-person-computer-man-surprise-clipart-hd-png.png",
     });
-
+    // chatRef?.current.scrollIntoView({
+    //   behavior: "smooth",
+    // })
     setInput('');
   };
 
