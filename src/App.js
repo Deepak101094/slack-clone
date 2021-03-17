@@ -1,13 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+//? library import
 import styled from "styled-components";
+import Spinner from "react-spinkit";
+//? firebase import
+import { useAuthState } from "react-firebase-hooks/auth";
+//? own components
+import { auth } from "./firebase";
 import SideBar from "./components/sidebar";
 import Chat from "./components/chatScreen/Chat";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase";
+import Header from "./components/Header";
 import Login from "./components/Login";
-import Spinner from "react-spinkit";
 
 function App() {
   const [user, loading] = useAuthState(auth);

@@ -1,10 +1,13 @@
 import React, { useRef, useEffect } from "react";
-import { InfoOutlined, StarBorderOutlined } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { selectRoomId } from "../../features/appSlice";
-import ChatInput from "./ChatInput";
+//? material import
+import { InfoOutlined, StarBorderOutlined } from "@material-ui/icons";
+//? firebase import
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
+//? own components
+import ChatInput from "./ChatInput";
+import { selectRoomId } from "../../features/appSlice";
 import { db } from "../../firebase";
 import Message from "./Message";
 

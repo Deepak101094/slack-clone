@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+//? material import
 import {
   Add,
   Apps,
@@ -14,9 +15,11 @@ import {
   InsertComment,
   PeopleAlt,
 } from "@material-ui/icons";
-import SideBarOption from "./SideBarOption";
-import { useCollection } from "react-firebase-hooks/firestore";
+//? own component
 import { db,auth } from "../../firebase";
+import SideBarOption from "./SideBarOption";
+//? import from firebase
+import { useCollection } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const SideBar = () => {

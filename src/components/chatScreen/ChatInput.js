@@ -1,9 +1,12 @@
-import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { db } from "../../firebase";
+//? material import
+import { Button } from "@material-ui/core";
+//? firebase import
 import firebase from "firebase";
 import { useAuthState } from  "react-firebase-hooks/auth";
+//? own components
+import { db } from "../../firebase";
 import { auth } from "../../firebase";
 
 const ChatInput = ({ channelName, channelId, chatRef }) => {

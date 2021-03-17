@@ -1,8 +1,10 @@
-import { Button } from "@material-ui/core";
 import React from "react";
+//? library import
 import styled from "styled-components";
-import { provider } from "../firebase";
+import { Button } from "@material-ui/core";
+//? own components
 import { auth } from "../firebase";
+import { provider } from "../firebase";
 
 const Login = () => {
   const signIn = (e) => {

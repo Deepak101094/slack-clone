@@ -1,6 +1,8 @@
 import React from "react";
+//? library import
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+//? own components
 import { db } from "../../firebase";
 import { enterRoom } from "../../features/appSlice";
 
