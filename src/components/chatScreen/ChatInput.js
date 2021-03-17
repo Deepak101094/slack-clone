@@ -12,12 +12,12 @@ const ChatInput = ({ channelName, channelId }) => {
     if (!channelId) {
       return false;
     }
-    db.collection("rooms").doc(channelId).collection("message").add({
+    db.collection("rooms").doc(channelId).collection("messages").add({
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       user: "Deepak Pandey",
       userImage:
-        "https://pbs.twing.com/profile_images/1339192504382590976/ZWxMn8cm_400x400.jpg",
+        "https://www.kindpng.com/picc/m/2-23341_clipart-person-computer-man-surprise-clipart-hd-png.png",
     });
 
     setInput('');

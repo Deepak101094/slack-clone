@@ -22,7 +22,6 @@ const Chat = () => {
         .collection("messages")
         .orderBy("timestamp", "asc")
   );
-
   return (
     <ChatContainer>
       <>
@@ -42,19 +41,19 @@ const Chat = () => {
         </Header>
 
         <ChatMessages>
-            {roomMessages?.docs.map(doc => {
-                const { message, timestamp, user, userImage } = doc.data()
-                return (
-                    <Message
-                    key={doc.id}
-                    message={message}
-                    timestamp={timestamp}
-                    user={user}
-                    userImage={userImage}
-                    />
-                )
-            })}
-            </ChatMessages>
+          {roomMessages?.docs.map((doc) => {
+            const { message, timestamp, user, userImage } = doc.data();
+            return (
+              <Message
+                key={doc.id}
+                message={message}
+                timestamp={timestamp}
+                user={user}
+                userImage={userImage}
+              />
+            );
+          })}
+        </ChatMessages>
         <ChatInput channelName={roomDetails?.data().name} channelId={roomId} />
       </>
     </ChatContainer>
