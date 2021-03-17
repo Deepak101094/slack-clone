@@ -19,9 +19,9 @@ const ChatInput = ({ channelName, channelId, chatRef }) => {
       userImage:
         "https://www.kindpng.com/picc/m/2-23341_clipart-person-computer-man-surprise-clipart-hd-png.png",
     });
-    // chatRef?.current.scrollIntoView({
-    //   behavior: "smooth",
-    // })
+    chatRef?.current.scrollIntoView({
+      behavior: "smooth",
+    })
     setInput('');
   };
 

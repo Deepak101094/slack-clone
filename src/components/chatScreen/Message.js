@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Message = ({ message, timestamp, user, userImage }) => {
-  //  console.log(userImage);
     return (
         <MessageContainer>
             <img src={userImage} alt="" />
